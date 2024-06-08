@@ -239,7 +239,7 @@ public class BankAccountTest {
 }
 
 ```
-## Challenge 4: Banking Inheritance: Understanding Inheritance and Polymorphism :family:
+## Challenge 4: Banking Inheritance: Understanding Inheritance and Polymorphism 🐦:
 After the success of the basic bank account opening system, the bank decided to expand its services to offer different types of accounts. Now, in addition to common bank accounts, they also offer savings accounts. Your task is to implement inheritance and polymorphism in the system, creating a "SavingsAccount" class that inherits from the previously created "BankAccount" class. The "SavingsAccount" class should add a new attribute, interest rate, in addition to the inherited attributes.
 
 ### Input :inbox_tray:
