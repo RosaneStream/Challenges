@@ -1,303 +1,308 @@
-# Desafios de Programação em Java Basico
+# Basic Java Programming Challenges :coffee:
 
-## 1. Operações Bancárias Simples com `switch`
+## 1: Simple Banking Operations with `switch` :money_with_wings:
 
-### Descrição
-Simulação de operações bancárias básicas como depósitos, saques e consulta de saldo em uma conta bancária virtual.
+### Description ✍️
+Simulation of basic banking operations such as deposits, withdrawals, and balance inquiries in a virtual bank account.
 
-### Entrada
-- O programa exibe um menu com as opções:
-  1. Depositar
-  2. Sacar
-  3. Consultar Saldo
-  4. Encerrar
-- O usuário escolhe uma opção digitando o número correspondente.
+### Input ⬇️:
+- The program displays a menu with the following options:
+  1. Deposit
+  2. Withdraw
+  3. Check Balance
+  4. End
+- The user chooses an option by typing the corresponding number.
 
-### Saída
-- Utilizando `switch`, o programa executa a operação escolhida.
-- **Depositar**: Solicita o valor e atualiza o saldo.
-- **Sacar**: Verifica se há saldo suficiente.
-- **Consultar Saldo**: Exibe o saldo atual.
-- **Encerrar**: Termina a execução do programa.
+### Output ⬆️:
+- Using `switch`, the program executes the chosen operation.
+- **Deposit**: Requests the amount and updates the balance.
+- **Withdraw**: Checks if there is enough balance.
+- **Check Balance**: Displays the current balance.
+- **End**: Terminates the program execution.
 
-### Exemplos
-| Entrada | Saída |
-| ------- | ----- |
-| 1<br>50<br>2<br>100<br>0 | Saldo atual: 50.0<br>Saldo insuficiente.<br>Programa encerrado. |
-| 3<br>1<br>550<br>0 | Saldo atual: 0.0<br>Saldo atual: 550.0<br>Programa encerrado. |
-| 1<br>1000<br>2<br>500<br>0 | Saldo atual: 1000.0<br>Saldo atual: 500.0<br>Programa encerrado. |
+### Examples :clipboard:
+| Input | Output |
+| ----- | ------ |
+| 1<br>50<br>2<br>100<br>0 | Current balance: 50.0<br>Insufficient balance.<br>Program ended. |
+| 3<br>1<br>550<br>0 | Current balance: 0.0<br>Current balance: 550.0<br>Program ended. |
+| 1<br>1000<br>2<br>500<br>0 | Current balance: 1000.0<br>Current balance: 500.0<br>Program ended. |
 
-### Código
+### Code :scroll:
 ```java
 import java.util.Scanner;
 
-public class SimulacaoBancaria {
+public class BankingSimulation {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        double saldo = 0;
-        boolean continuar = true;
+        double balance = 0;
+        boolean continueOperation = true;
 
-        while (continuar) {
-            // Solicitar opção ao usuário
-            int opcao = scanner.nextInt();
+        while (continueOperation) {
+            // Request option from user
+            int option = scanner.nextInt();
 
-            switch (opcao) {
+            switch (option) {
                 case 1:
-                    // Ler o valor a ser depositado e atualizar/imprimir o saldo.
+                    // Read the deposit amount and update/print the balance.
                     System.out.println();
-                    double deposito = scanner.nextDouble();
-                    saldo += deposito;
-                    System.out.printf("Saldo atual: %.1f%n", saldo);
+                    double deposit = scanner.nextDouble();
+                    balance += deposit;
+                    System.out.printf("Current balance: %.1f%n", balance);
                     break;
                 case 2:
-                    // Ler o valor a ser sacado e verificar/imprimir se há saldo suficiente.
+                    // Read the withdrawal amount and check/print if there is enough balance.
                     System.out.println();
-                    double saque = scanner.nextDouble();
-                    if (saque <= saldo) {
-                        saldo -= saque;
-                        System.out.printf("Saldo atual: %.1f%n", saldo);
+                    double withdrawal = scanner.nextDouble();
+                    if (withdrawal <= balance) {
+                        balance -= withdrawal;
+                        System.out.printf("Current balance: %.1f%n", balance);
                     } else {
-                        System.out.println("Saldo insuficiente.");
+                        System.out.println("Insufficient balance.");
                     }
                     break;
                 case 3:
-                    // Exibir o saldo atual da conta.
-                    System.out.printf("Saldo atual: %.1f%n", saldo);
+                    // Display the current balance of the account.
+                    System.out.printf("Current balance: %.1f%n", balance);
                     break;
                 case 0:
-                    // Encerrar o programa.
-                    System.out.println("Programa encerrado.");
-                    continuar = false;  // Atualiza a variável de controle para encerrar o loop
+                    // End the program.
+                    System.out.println("Program ended.");
+                    continueOperation = false;  // Update the control variable to end the loop
                     break;
                 default:
-                    // Opção inválida.
-                    System.out.println("Opção inválida. Tente novamente.");
+                    // Invalid option.
+                    System.out.println("Invalid option. Please try again.");
             }
         }
         scanner.close();
     }
 }
-
 ```
+## 2: Bank Account Number Verification Challenge 🏦
 
-## 2. Verificação de Número de Conta Bancária
+### Description ✍️
+Verify the validity of a bank account number, which must have exactly 8 digits.
 
-### Descrição
-Verificação da validade de um número de conta bancária, que deve ter exatamente 8 dígitos.
+### Input ⬇️
+- The program requests the bank account number.
 
-### Entrada
-- O programa solicita o número da conta bancária.
+### Output ⬆️
+- Uses `try-catch` to validate the account number.
+- Informs whether the number is valid or invalid.
 
-### Saída
-- Utiliza `try-catch` para validar o número da conta.
-- Informa se o número é válido ou inválido.
+### Examples 📋
+| Input     | Output |
+| --------- | ------ |
+| 01020304  | Valid account number. |
+| 1234568   | Error: Invalid account number. Please enter exactly 8 digits. |
+| 3231      | Error: Invalid account number. Please enter exactly 8 digits. |
 
-### Exemplos
-| Entrada  | Saída |
-| -------- | ----- |
-| 01020304 | Numero de conta valido. |
-| 1234568  | Erro: Numero de conta invalido. Digite exatamente 8 digitos. |
-| 3231     | Erro: Numero de conta invalido. Digite exatamente 8 digitos. |
-
-### Código
+### Code :scroll:
 ```java
 import java.util.Scanner;
 
-public class VerificadorNumeroConta {
+public class AccountNumberVerifier {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         try {
-            
-            String numeroConta = scanner.nextLine();
+            // Prompt for the account number
+            System.out.print("Enter your account number: ");
+            String accountNumber = scanner.nextLine();
 
-            // Chama o método que verifica se o número da conta é válido
-            verificarNumeroConta(numeroConta);
+            // Call the method to verify if the account number is valid
+            verifyAccountNumber(accountNumber);
 
-            // Caso nenhuma exceção seja lançada, imprime a mensagem de sucesso
-            System.out.println("Numero de conta valido.");
+            // If no exception is thrown, print the success message
+            System.out.println("Valid account number. ✅");
         } catch (IllegalArgumentException e) {
-            // Informa que o número de conta é inválido e exibe a mensagem de erro
-            System.out.println("Erro: " + e.getMessage());
+            // Inform that the account number is invalid and display the error message
+            System.out.println("Error: " + e.getMessage() + " ❌");
         } finally {
-            // Fecha o scanner para evitar vazamentos de recursos
+            // Close the scanner to prevent resource leaks
             scanner.close();
         }
     }
 
-    // Método que verifica se o número da conta possui exatamente 8 dígitos
-    private static void verificarNumeroConta(String numeroConta) {
-        if (numeroConta.length() != 8) {
-            // Lança uma IllegalArgumentException com a mensagem apropriada
-            throw new IllegalArgumentException("Numero de conta invalido. Digite exatamente 8 digitos.");
+    // Method to verify if the account number has exactly 8 digits
+    private static void verifyAccountNumber(String accountNumber) {
+        if (accountNumber.length() != 8) {
+            // Throw an IllegalArgumentException with the appropriate message
+            throw new IllegalArgumentException("Invalid account number. Please enter exactly 8 digits.");
+        }
+        // Additional check for non-digit characters
+        if (!accountNumber.matches("\\d{8}")) {
+            throw new IllegalArgumentException("Invalid account number. It must contain only digits.");
         }
     }
 }
 ```
+## 3: Bank Account Age Verification Challenge 🎂
 
-## 3. Verificador de Idade para Conta Bancária
+### Description ✍️
+Verify whether a client is eligible to create a bank account based on their age, which must be at least 18 years old.
 
-### Descrição
-Verificação se um cliente é elegível para criar uma conta bancária baseado na idade, que deve ser pelo menos 18 anos.
+### Input ⬇️
+- The program requests the user to enter their age.
 
-### Entrada
-- O programa solicita ao usuário que digite sua idade.
+### Output ⬆️
+- Using `if-else`, the program checks if the age is 18 or older.
+- **Eligible**: Informs that the client can create a bank account.
+- **Not Eligible**: Informs that the client cannot create a bank account.
 
-### Saída
-- Utilizando `if-else`, o programa verifica se a idade é igual ou superior a 18 anos.
-- **Elegível**: Informa que o cliente pode criar uma conta bancária.
-- **Não Elegível**: Informa que o cliente não pode criar uma conta bancária.
+### Examples 📋
+| Input | Output |
+| ----- | ------ |
+| 17    | You are not eligible to create a bank account. |
+| 26    | You are eligible to create a bank account. |
+| 18    | You are eligible to create a bank account. |
 
-### Exemplos
-| Entrada | Saída |
-| ------- | ----- |
-| 17      | Voce nao esta elegivel para criar uma conta bancaria. |
-| 26      | Voce esta elegivel para criar uma conta bancaria. |
-| 18      | Voce esta elegivel para criar uma conta bancaria. |
-
-### Código
+### Code 📜
 ```java
-
 import java.util.Scanner;
 
-
-public class VerificadorElegibilidadeConta {
-
+public class BankAccountAgeVerifier {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println();
-        int idade = scanner.nextInt();
+        // Prompt the user for their age
+        System.out.print("Please enter your age: ");
+        int age = scanner.nextInt();
 
-        // Verificar se a idade do cliente
-        if (idade >= 18) {
-            // Se >= 18, imprimir "Voce esta elegivel para criar uma conta bancaria."
-            System.out.println("Voce esta elegivel para criar uma conta bancaria.");
+        // Check if the client is 18 or older
+        if (age >= 18) {
+            // If eligible, print the confirmation message
+            System.out.println("You are eligible to create a bank account.");
         } else {
-            // Caso contrário, imprimir "Voce nao esta elegivel para criar uma conta bancaria."
-            System.out.println("Voce nao esta elegivel para criar uma conta bancaria.");
+            // If not eligible, print the denial message
+            System.out.println("You are not eligible to create a bank account.");
         }
 
-        // Fechar o scanner para evitar vazamentos de recursos
+        // Close the scanner to prevent resource leaks
         scanner.close();
     }
 }
 ```
 
-## 4. Verificação de Cheque Especial
+## 4: Overdraft Verification Challenge 💰
 
-### Descrição
-Desenvolvimento de um programa em Java para verificar se uma conta bancária ultrapassou o limite do cheque especial após a realização de um saque.
+### Description ✍️
+Develop a Java program to check if a bank account has exceeded the overdraft limit after making a withdrawal.
 
-### Entrada
-- Saldo atual da conta bancária.
-- Valor do saque desejado pelo cliente.
+### Input ⬇️
+- Current bank account balance.
+- Desired withdrawal amount by the client.
 
-### Saída
-- O programa verifica se o saque ultrapassa o saldo disponível.
-- Se o saque não ultrapassar o saldo, informa que a transação foi realizada com sucesso.
-- Se o saque ultrapassar o saldo, mas não o limite do cheque especial (500 unidades monetárias), informa que a transação foi realizada com sucesso utilizando o cheque especial.
-- Se o saque ultrapassar o limite do cheque especial, informa que a transação não pode ser realizada.
+### Output ⬆️
+- The program checks if the withdrawal exceeds the available balance.
+- If the withdrawal does not exceed the balance, it informs that the transaction was successful.
+- If the withdrawal exceeds the balance but not the overdraft limit (500 monetary units), it informs that the transaction was successful using the overdraft.
+- If the withdrawal exceeds the overdraft limit, it informs that the transaction cannot be performed.
 
-### Exemplos
-| Entrada | Saída |
-| ------- | ----- |
-| 1000<br>100 | Transação realizada com sucesso. |
-| 2500<br>2750 | Transação realizada com sucesso utilizando o cheque especial. |
-| 300<br>1500 | Transação não realizada. Limite do cheque especial excedido. |
+### Examples 📋
+| Input       | Output |
+| ----------- | ------ |
+| 1000<br>100 | Transaction successful. |
+| 2500<br>2750| Transaction successful using overdraft. |
+| 300<br>1500 | Transaction not performed. Overdraft limit exceeded. |
 
-### Código
+### Code 📜
 ```java
 import java.util.Scanner;
 
-public class VerificacaoChequeEspecial {
+public class OverdraftChecker {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        double saldo = scanner.nextDouble();
-        double saque = scanner.nextDouble();
+        // Ask for the current balance and withdrawal amount
+        System.out.print("Enter your current balance: ");
+        double balance = scanner.nextDouble();
+        System.out.print("Enter the withdrawal amount: ");
+        double withdrawal = scanner.nextDouble();
 
-        // Define um limite para o cheque especial
-        double limiteChequeEspecial = 500;
-        // Calcula o total disponivel
-        double totalDisponivel = limiteChequeEspecial + saldo;
+        // Define the overdraft limit
+        double overdraftLimit = 500;
+        // Calculate the total available balance including overdraft
+        double totalAvailable = overdraftLimit + balance;
 
-        // Verifica se o saque ultrapassa o saldo disponível
-        if (saque <= saldo) {
-            // TODO: Imprimir "Transação realizada com sucesso."
-            System.out.printf("Transacao realizada com sucesso.");
-            
+        // Check if the withdrawal exceeds the balance
+        if (withdrawal <= balance) {
+            // If within balance, confirm the successful transaction
+            System.out.println("Transaction successful.");
+        } else if (withdrawal <= totalAvailable) {
+            // If within overdraft limit, confirm the successful transaction with overdraft
+            System.out.println("Transaction successful using overdraft.");
         } else {
-            // TODO: Verificar se o saque ultrapassa o limite do cheque especial
-            // Em caso positivo, imprimir "Transacao realizada com sucesso utilizando o cheque especial."
-            if (saque <= totalDisponivel) {
-                 System.out.println("Transacao realizada com sucesso utilizando o cheque especial.");
-            } else {
-            // Caso contrário, imprimir "Transacao nao realizada. Limite do cheque especial excedido."
-                 System.out.println("Transacao nao realizada. Limite do cheque especial excedido.");
-            }
+            // If exceeding overdraft limit, deny the transaction
+            System.out.println("Transaction not performed. Overdraft limit exceeded.");
         }
 
-        // Fechar o scanner para evitar vazamentos de recursos
+        // Close the scanner to prevent resource leaks
         scanner.close();
     }
 }
 ```
+## 5: Daily Withdrawal Limit Control Challenge 🚫
 
-## 5. Controle de Saques
+### Description ✍️
+A Java program to assist a client in making withdrawals from a bank account, respecting a predefined daily limit.
 
-### Descrição
-Programa em Java para auxiliar um cliente a realizar saques de uma conta bancária, respeitando um limite diário predefinido.
+### Input ⬇️
+- Daily withdrawal limit.
+- Amount of the first withdrawal.
 
-### Entrada
-- Limite diário de saque.
-- Valor do primeiro saque.
+### Output ⬆️
+- The program iterates over the withdrawals and checks if the value exceeds the daily limit.
+- If the withdrawal amount exceeds the limit, it informs that the limit has been reached and ends the loop.
+- If the withdrawal amount does not exceed the limit, it informs that the withdrawal was successful and updates the remaining limit.
 
-### Saída
-- O programa itera sobre os saques e verifica se o valor ultrapassa o limite diário.
-- Se o valor do saque ultrapassar o limite, informa que o limite foi atingido e encerra o loop.
-- Se o valor do saque não ultrapassar o limite, informa que o saque foi realizado com sucesso e atualiza o limite restante.
+### Examples 📋
+| Input          | Output |
+| -------------- | ------ |
+| 1500<br>430<br>0 | Withdrawal successful. Remaining limit: 1070.0<br>Transactions ended. |
+| 500<br>1500    | Daily withdrawal limit reached. Transactions ended. |
+| 80<br>40<br>0  | Withdrawal successful. Remaining limit: 40.0<br>Transactions ended. |
 
-### Exemplos
-| Entrada | Saída |
-| ------- | ----- |
-| 1500<br>430<br>0 | Saque realizado. Limite restante: 1070.0<br>Transações encerradas. |
-| 500<br>1500 | Limite diário de saque atingido. Transações encerradas. |
-| 80<br>40<br>0 | Saque realizado. Limite restante: 40.0<br>Transações encerradas. |
-
-### Código
+### Code 📜
 ```java
 import java.util.Scanner;
 
-public class ControleSimplesDeSaques {
+public class DailyWithdrawalLimitController {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        double limiteDiario = scanner.nextDouble();
+        // Request the daily withdrawal limit
+        System.out.print("Enter the daily withdrawal limit: ");
+        double dailyLimit = scanner.nextDouble();
 
-        // Loop for para iterar sobre os saques
-        for (int i = 1; ; i++) {
+        // Loop to handle multiple withdrawal attempts
+        while (true) {
 
-            double valorSaque = scanner.nextDouble();
+            // Ask for the withdrawal amount or 0 to end
+            System.out.print("Enter the withdrawal amount (or 0 to end): ");
+            double withdrawalAmount = scanner.nextDouble();
 
-            if (valorSaque == 0) {
-                System.out.println("Transacoes encerradas.");
-                break; // Encerra o loop
-            } else if (valorSaque > limiteDiario) {
-                System.out.println("Limite diario de saque atingido. Transacoes encerradas.");
-                break; // Encerra o loop
+            // Check if the user wants to end the transactions
+            if (withdrawalAmount == 0) {
+                // Confirm the end of transactions
+                System.out.println("Transactions ended.");
+                break;
+            } else if (withdrawalAmount > dailyLimit) {
+                // If the withdrawal exceeds the limit, deny the transaction
+                System.out.println("Daily withdrawal limit reached. Transactions ended.");
+                break;
             } else {
-                // TODO: Atualizar o limite diário e imprimir a saída no formato dos exemplos.
-                limiteDiario -= valorSaque; 
-                System.out.printf("Saque realizado. Limite restante: %.1f%n", limiteDiario);         
+                // If within the limit, proceed with the withdrawal and update the remaining limit
+                dailyLimit -= withdrawalAmount;
+                System.out.printf("Withdrawal successful. Remaining limit: %.1f%n", dailyLimit);
             }
         }
-        // Fechar o scanner para evitar vazamentos de recursos
+        // Close the scanner to prevent resource leaks
         scanner.close();
     }
 }
