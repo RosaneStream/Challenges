@@ -1,24 +1,24 @@
-# Intermediate Java Programming Challenges
+# Intermediate Java Programming Challenges :computer:
 
-## Challenge 1: Bank Transaction Records
+## Challenge 1: Bank Transaction Records :bank:
 Develop a simple Java program to maintain a record of bank transactions, storing each transaction in a list.
 
-### Input
+### Input :inbox_tray:
 - The program requests the initial balance of the account.
 - Then, it requests the total number of transactions the customer wishes to perform.
 
-### Output
+### Output :outbox_tray:
 - The `BankAccount` class contains methods to perform deposits and withdrawals, updating the account balance.
 - The current balance is displayed after each transaction.
 - If the withdrawal amount is greater than the available balance, print: "Insufficient balance. Withdrawal not performed."
 
-### Examples
+### Examples :page_with_curl:
 | Input | Output |
 | ----- | ------ |
 | 50<br>50<br>100 | Deposit made.<br>Balance current: 100.0<br>Withdrawal made.<br>Balance current: 0.0 |
 | 90<br>90<br>12 | Deposit made.<br>Balance current: 180.0<br>Withdrawal made.<br>Balance current: 168.0 |
 
-### Code
+### Code :scroll:
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -71,25 +71,24 @@ public class BankTransactionRecords {
     }
 }
 ```
-
-## Challenge 2: Bank Transaction Records with Stream API
+## Challenge 2: Bank Transaction Records with Stream API :zap:
 Enhance the previous program to use Java's Stream API to process bank transactions more efficiently.
 
-### Input
+### Input :inbox_tray:
 - The program requests the initial balance of the account.
 - Then, it requests the total number of transactions the customer wishes to perform.
 
-### Output
+### Output :outbox_tray:
 - Using the Stream API, the program stores each transaction, including a type (Deposit or Withdrawal) and a value.
 - At the end of the transactions, it displays the final balance of the account and the list of transactions.
 
-### Examples
+### Examples :page_with_curl:
 | Input | Output |
 | ----- | ------ |
 | 100<br>2<br>D<br>10<br>S<br>20 | Balance: 90.0<br>Transactions:<br>D of 10.0<br>S of 20.0 |
 | 5000<br>1<br>D<br>500 | Balance: 5500.0<br>Transactions:<br>D of 500.0 |
 
-### Code
+### Code :scroll:
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -162,26 +161,25 @@ class Transaction {
     }
 }
 ```
-
-## Challenge 3: Bank Account with Constructor in OOP
+## Challenge 3: Bank Account with Constructor in OOP :moneybag:
 Develop a simple Java program to represent a bank account using object-oriented programming (OOP), with a constructor for initializing the account with an initial balance.
 
-### Input
+### Input :inbox_tray:
 - The program requests the initial balance of the account.
 - Then, it requests the user to perform deposit and withdrawal transactions.
 
-### Output
+### Output :outbox_tray:
 - The `BankAccount` class contains methods to perform deposits and withdrawals, updating the account balance.
 - The current balance is displayed after each transaction.
 - If the withdrawal amount is greater than the available balance, print: "Insufficient balance. Withdrawal not performed."
 
-### Examples
+### Examples :ledger:
 | Input | Output |
 | ----- | ------ |
 | 50<br>50<br>100 | Deposit made.<br>Balance current: 100.0<br>Withdrawal made.<br>Balance current: 0.0 |
 | 90<br>90<br>12 | Deposit made.<br>Balance current: 180.0<br>Withdrawal made.<br>Balance current: 168.0 |
 
-### Code
+### Code :scroll:
 ```java
 class BankAccount {
     private double balance; // The balance of the bank account
@@ -241,24 +239,23 @@ public class BankAccountTest {
 }
 
 ```
-
-## Challenge 4: Banking Inheritance: Understanding Inheritance and Polymorphism
+## Challenge 4: Banking Inheritance: Understanding Inheritance and Polymorphism :family:
 After the success of the basic bank account opening system, the bank decided to expand its services to offer different types of accounts. Now, in addition to common bank accounts, they also offer savings accounts. Your task is to implement inheritance and polymorphism in the system, creating a "SavingsAccount" class that inherits from the previously created "BankAccount" class. The "SavingsAccount" class should add a new attribute, interest rate, in addition to the inherited attributes.
 
-### Input
+### Input :inbox_tray:
 - The program requests information necessary to open a savings account, including account number, account holder's name, initial balance, and savings account interest rate.
 
-### Output
+### Output :outbox_tray:
 - After receiving the savings account information, the program creates a "SavingsAccount" object and displays the account information, including account number, holder's name, current balance, and interest rate.
 
-### Examples
+### Examples :ledger:
 | Input | Output |
 | ----- | ------ |
 | Joao<br>123456<br>1000.0<br>1.5 | Savings Account:<br>Joao<br>123456<br>Balance: $1000.0<br>Interest rate: 1.5% |
 | Ana<br>789012<br>2500.0<br>3.0 | Savings Account:<br>Ana<br>789012<br>Balance: $2500.0<br>Interest rate: 3.0% |
 | Maria<br>987654<br>500.0<br>2.5 | Savings Account:<br>Maria<br>987654<br>Balance: $500.0<br>Interest rate: 2.5% |
 
-### Code
+### Code :scroll:
 ```java
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -326,24 +323,23 @@ class SavingsAccount extends BankAccount {
 
 ```
 
-## Challenge 5: Safe Vaults: Mastering Encapsulation and Abstraction
+## Challenge 5: Safe Vaults: Mastering Encapsulation and Abstraction :closed_lock_with_key:
 You have been hired to develop a system of safe vaults. The goal is to create two types of vaults: a Digital Vault, which is opened by a password, and a Physical Vault, which is opened by a key.
 
-### Input
+### Input :key:
 - The program will request the user to type the kind of vault to be created: "digital" or "physical". If "digital" is chosen, the program will request the vault's password and password confirmation (both numeric only). If "physical" is chosen, no further input is needed.
 
-### Output
+### Output :lock:
 - The program will display the information of the created vault. For the Digital Vault, it will show the type and opening method (password). For the Physical Vault, it will show only the type and opening method (key).
 
-### Examples
+### Examples :memo:
 | Input | Output |
 | ----- | ------ |
-| digital<br>12345<br>1234 | Type: Digital Vault<br>Opening method: Password<br>Incorrect password! |
-| physical | Type: Physical Vault<br>Opening method: Key |
-| digital<br>2525<br>2525 | Type: Digital Vault<br>Opening method: Password<br>Vault opened! |
+| digital<br>12345<br>1234 | Type: Digital Vault<br>Opening method: Password<br>Incorrect password! :x: |
+| physical | Type: Physical Vault<br>Opening method: Key :old_key: |
+| digital<br>2525<br>2525 | Type: Digital Vault<br>Opening method: Password<br>Vault opened! :white_check_mark: |
 
-### Code
-
+### Code :scroll:
 ```java
 import java.util.Scanner;
 
